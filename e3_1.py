@@ -25,10 +25,12 @@ def get_positions(cable):
 
 
 if __name__ == '__main__':
+    # original data
     with open('inputs/3.in') as f:
         A, B = f.readlines()
         A, B = [x.split(',') for x in [A, B]]
 
+    # for debbuging (result = 159)
     cable_1 = ['R75', 'D30', 'R83', 'U83', 'L12', 'D49', 'R71', 'U7', 'L72']
     cable_2 = ['U62', 'R66', 'U55', 'R34', 'D71', 'R55', 'D58', 'R83']
 
@@ -40,7 +42,4 @@ if __name__ == '__main__':
     common = positions_1.intersection(positions_2)
 
     # finding the lowest sum (closed to 0)
-    sums = []
-    for x, y in common:
-        sums.append(abs(x) + abs(y))
-    print(min(sums))
+    print(min([abs(x) + abs(y) for x, y in common]))
