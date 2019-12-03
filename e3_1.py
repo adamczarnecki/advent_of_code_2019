@@ -1,4 +1,3 @@
-
 def get_positions(cable):
     positions = set()
     pos = [0, 0]
