@@ -29,11 +29,10 @@ def asc_digits(xxx):
     return all(given)
 
 
-count = 0
-for num in range(min_range, max_range):
-    if six_digits(num) and same_digits(num) and asc_digits(num):
-        count += 1
-print(count)
-
-
-print('czas: ', time.time() - start)
+if __name__ == '__main__':
+    count = 0
+    for num in range(min_range, max_range):
+        if six_digits(num) and same_digits(num) and asc_digits(num):
+            count += 1
+    print(count)
+    print('czas: ', time.time() - start)
