@@ -29,6 +29,8 @@ def get_steps_to_point(cable):
 
 
 if __name__ == '__main__':
+    import time
+    start = time.time()
     # original data
     with open('inputs/3.in') as f:
         A, B = f.readlines()
@@ -58,3 +60,4 @@ if __name__ == '__main__':
     print('ta kurwa to odpowiedz:')
     print(min(steps_to_crossings))
     print('mam nadzieje')
+    print('czas: ', time.time() - start)
