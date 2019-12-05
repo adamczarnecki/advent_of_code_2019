@@ -16,21 +16,17 @@ def intcode_computer(instructions):
             return intcode[0]
         elif job == add:
             # print('Pozycja: ', pos, 'zadanie: ', job, 'adres: ', intcode[pos + 1])
-            intcode[intcode[pos + 3]] = intcode[pos + 1] + intcode[pos + 2]
+            intcode[intcode[pos + 3]] = intcode[intcode[pos + 1]] + intcode[intcode[pos + 2]]
             pos += 4
         elif job == multiply:
-            # print('Pozycja: ', pos, 'zadanie: ', job, 'adres: ', intcode[pos + 1])
-            intcode[intcode[pos + 3]] = intcode[pos + 1] * intcode[pos + 2]
+            intcode[intcode[pos + 3]] = intcode[intcode[pos + 1]] * intcode[intcode[pos + 2]]
             pos += 4
         elif job == inp:
-            # print('Pozycja: ', pos, 'zadanie: ', job, 'adres: ', intcode[pos + 1])
             intcode[intcode[pos + 1]] = int(input('input: '))
             pos += 2
         elif job == out:
-            # print('Pozycja: ', pos, 'zadanie: ', job, 'adres: ', intcode[pos + 1])
             print(intcode[intcode[pos + 1]])
             pos += 2
-        # print('Pozycja: ', pos, 'zadanie: ', job)
 
     return intcode[0]
 
@@ -42,7 +38,8 @@ if __name__ == '__main__':
         intcode = [int(x) for x in f.read().split(',')]
 
     # for debuging
-    intcodee = [3, 0, 4, 0, 1, 2, 2, 0, 4, 0, 2, 5, 5, 0, 99]
-    print(intcode_computer(intcodee))
+    #         inp    inp   add         out   multiply    halt
+    intcode = [3, 1, 3, 3, 1, 1, 3, 0, 4, 0, 2, 1, 3, 0, 99]   # return multiplication of inputs
+    print(intcode_computer(intcode))
 
     print('czas: ', time.time() - start)
