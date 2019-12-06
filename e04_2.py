@@ -1,4 +1,4 @@
-from e4_1 import six_digits, asc_digits, same_digits, min_range, max_range
+from e04_1 import six_digits, asc_digits, same_digits, min_range, max_range
 import time
 import re
 
